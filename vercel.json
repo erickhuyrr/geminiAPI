@@ -1,9 +1,18 @@
 {
   "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
   "routes": [
     {
-      "src": "/generate",
-      "dest": "/api/index.js"
+      "src": "/(.*)",
+      "dest": "index.js"
     }
-  ]
+  ],
+  "env": {
+    "GEMINI_API_KEY": "@gemini_api_key"
+  }
 }
